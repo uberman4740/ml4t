@@ -13,6 +13,8 @@ import time
 
 from ml_utilityfunc import *
 
+'''Ipython notebook code for Machine Learning for Trading, L0106'''
+
 # Histograms and Scatterplots
     # It is more useful to consider daily returns relative to different stocks
     # Generally, distributions of daily returns follow an approximate normal distribution

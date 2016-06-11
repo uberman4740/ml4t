@@ -9,6 +9,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
 
+'''Ipython notebook code for Machine Learning for Trading, L0101'''
+
 def get_max_close(symbol):
     df = pd.read_csv("data/{}.csv".format(symbol)) # read in data corresponding to symbol
     return df['Close'].max() # compute and return max

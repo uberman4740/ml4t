@@ -13,6 +13,8 @@ import time
 
 from ml_utilityfunc import *
 
+'''Ipython notebook code for Machine Learning for Trading, L0104'''
+
 # Statistics on time-series data
     # Global statistics:
         # stat = df.mean() --> mean of each column in ndarray form

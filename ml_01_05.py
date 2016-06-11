@@ -13,6 +13,8 @@ import time
 
 from ml_utilityfunc import *
 
+'''Ipython notebook code for Machine Learning for Trading, L0105'''
+
 # Incomplete Data:
     # Even though financial data is well recorded, it can be faulty and have
     # missing information

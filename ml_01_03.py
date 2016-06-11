@@ -13,6 +13,8 @@ import time
 
 from ml_utilityfunc import *
 
+'''Ipython notebook code for Machine Learning for Trading, L0103'''
+
 # Numpy is a python wrapper around C/Fortran and uses ndarrays 
 # that make the syntax very similar to MATLAB. Numpy allows you to
 # do all kinds of arithmetic/matrix/numerical operations. 

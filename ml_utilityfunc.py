@@ -10,6 +10,8 @@ import matplotlib.pyplot as plt
 import matplotlib
 import os
 
+'''Ipython notebook code for Machine Learning for Trading, Utility Functions'''
+
 def symbol_to_path(symbol,base_dir="data"):
     # return filepath of csv corresponding to a given ticker symbol
     return os.path.join(base_dir, "{}.csv".format(str(symbol)))

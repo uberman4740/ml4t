@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[16]:
+# In[1]:
 
 get_ipython().magic(u'matplotlib inline')
 import pandas as pd
@@ -9,6 +9,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
 import os
+
+'''Ipython notebook code for Machine Learning for Trading, L0102'''
 
 # problems to solve: 
     # want to read particular date ranges --> index by dates
@@ -108,7 +110,7 @@ def normalize_data(df):
     return df/df.ix[0,:]
 
 
-# In[17]:
+# In[3]:
 
 dates=pd.date_range('2010-01-01','2010-12-31')
 symbols=['GOOG','IBM','GLD']
@@ -127,7 +129,7 @@ df_IBM_GOOG = df1[['IBM','GOOG']]
 df_SPY_IBM_jan = df1.ix['2010-01-01':'2012-01-31',['SPY','IBM']]
 
 # plot data
-plot_data(df_SPY_IBM_jan_norm)
+plot_data(df_SPY_IBM_jan)
 plot_selected(df1,['IBM','GOOG'],'2010-03-01','2010-03-31')
 
 # normalize price data
