@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[ ]:
+# In[1]:
 
 get_ipython().magic(u'matplotlib inline')
 import pandas as pd
@@ -14,7 +14,7 @@ def symbol_to_path(symbol,base_dir="data"):
     # return filepath of csv corresponding to a given ticker symbol
     return os.path.join(base_dir, "{}.csv".format(str(symbol)))
 
-def get_data(symbols,dates):
+def get_data(symbols,dates,dropna=False):
     # function to read in stock data (adj. close) for given symbols
     df = pd.DataFrame(index=dates)
     
@@ -27,14 +27,17 @@ def get_data(symbols,dates):
                               parse_dates=True, usecols=['Date','Adj Close'],
                               na_values=['nan'])
         df_temp = df_temp.rename(columns={'Adj Close': symbol})
-        df = df.join(df_temp,how='inner')
+        if dropna == True:
+            df = df.join(df_temp,how='inner')
+        else:
+             df = df.join(df_temp)
         
     return df.sort_index(ascending=True) # return list sorted by date
 
-def plot_data(df, title="Stock Prices"):
+def plot_data(df, title="Stock Prices",ylabel="Price",xlabel="Date"):
     ax = df.plot(title=title)
-    ax.set_xlabel("Date")
-    ax.set_ylabel("Price")
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel)
     plt.show()
     
 def plot_selected(df, columns, start_index, end_index):
@@ -43,4 +46,14 @@ def plot_selected(df, columns, start_index, end_index):
 
 def normalize_data(df):
     return df/df.ix[0,:]
+
+def fill_missing_values(df):
+    pass
+    df.fillna(method='ffill',inplace='TRUE')
+    df.fillna(method='bfill',inplace='TRUE')  
+
+
+# In[ ]:
+
+
 
