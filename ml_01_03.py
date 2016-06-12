@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[76]:
+# In[1]:
 
 get_ipython().magic(u'matplotlib inline')
 import pandas as pd
@@ -131,7 +131,7 @@ def numpy_mean(arr):
     return arr.mean()
 
 
-# In[77]:
+# In[2]:
 
 test_run_2()
 

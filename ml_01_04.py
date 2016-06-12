@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[15]:
+# In[1]:
 
 get_ipython().magic(u'matplotlib inline')
 import pandas as pd
@@ -41,12 +41,6 @@ from ml_utilityfunc import *
     # Cumulative returns:
         # cumret[t]=(price[t]/price[0])-1
     
-def get_bollinger_bands(rm,rstd):
-    
-    upper_band = rm + 2*rstd
-    lower_band = rm - 2*rstd
-    
-    return upper_band, lower_band
 
 def get_rolling_mean(values,window):
     return pd.rolling_mean(values,window=window)
@@ -54,23 +48,10 @@ def get_rolling_mean(values,window):
 def get_rolling_std(values,window):
      return pd.rolling_std(values,window=window)
 
-def compute_daily_returns(df):
-    # daily_ret[t]=(price[t]/price[t-1])-1
-    #daily_ret = df.copy()
-    #daily_ret[1:] = (df[1:]/df[:-1].values)-1
-    daily_ret = (df/df.shift(1))-1
-    daily_ret.ix[0,:] = 0
-    return daily_ret
-
-def compute_cumulative_returns(df):
-    daily_ret = compute_daily_returns(df)
-    return daily_ret.cumsum()
-    
-
 def test_run():
     dates = pd.date_range('2012-07-01','2012-07-31')
     symbols = ['SPY','XOM']
-    df = get_data(symbols, dates)
+    df = get_data(symbols, dates, dropna=True)
     ax = df['SPY'].plot(title="SPY Rolling Mean", label='SPY')
     
     # compute global stats for each stock
@@ -109,7 +90,7 @@ def test_run():
     
 
 
-# In[16]:
+# In[2]:
 
 test_run()
 

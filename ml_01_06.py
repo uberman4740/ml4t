@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[26]:
+# In[9]:
 
 get_ipython().magic(u'matplotlib inline')
 import pandas as pd
@@ -34,18 +34,6 @@ from ml_utilityfunc import *
         #       - correlation gives you a measure of how tightly data fits the regressed line
         # For linereg, use numpy polyfit function
         
-def compute_daily_returns(df):
-    # daily_ret[t]=(price[t]/price[t-1])-1
-    #daily_ret = df.copy()
-    #daily_ret[1:] = (df[1:]/df[:-1].values)-1
-    daily_ret = (df/df.shift(1))-1
-    daily_ret.ix[0,:] = 0
-    return daily_ret
-
-def compute_cumulative_returns(df):
-    daily_ret = compute_daily_returns(df)
-    return daily_ret.cumsum()
-
 def hist_one_stock():
     dates = pd.date_range('2009-01-01','2012-12-31')
     symbols = ['SPY']
@@ -145,12 +133,12 @@ def scatter_two_stocks():
     
 
 
-# In[5]:
+# In[10]:
 
 hist_one_stock()
 
 
-# In[6]:
+# In[11]:
 
 hist_two_stocks()
 
@@ -160,7 +148,7 @@ hist_two_stocks()
 
 
 
-# In[27]:
+# In[12]:
 
 scatter_two_stocks()
 
