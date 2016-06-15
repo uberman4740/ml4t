@@ -16,12 +16,13 @@ def symbol_to_path(symbol,base_dir="data"):
     # return filepath of csv corresponding to a given ticker symbol
     return os.path.join(base_dir, "{}.csv".format(str(symbol)))
 
-def get_data(symbols,dates,dropna=False):
+def get_data(symbols,dates,dropna=False,addSPY=False):
     # function to read in stock data (adj. close) for given symbols
     df = pd.DataFrame(index=dates)
     
     # add SPY for reference if absent
-    if 'SPY' not in symbols:
+    
+    if addSPY and ('SPY' not in symbols):
         symbols.insert(0,'SPY')
         
     for symbol in symbols:
