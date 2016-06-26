@@ -102,6 +102,9 @@ def get_sharpe_ratio(returns, std_returns, annual_rfr=0, mod=0):
     adj_returns = returns - rfr
     return K*(adj_returns.mean()/std_returns)
 
+def get_distance(x1,x2):
+    return (x1-x2)**2
+
 
 # In[ ]:
 
